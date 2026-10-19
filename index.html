@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invitación de cumpleaños</title>
+  <!-- Tipografías de Google Fonts (necesitan internet; si no cargan, se usan las de respaldo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Aquí se conecta el CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- VIDEO DE FONDO: pon tu video en fondo.mp4 -->
+  <video class="video-fondo" autoplay muted loop playsinline poster="">
+    <source src="backr.mp4" type="video/mp4">
+  </video>
+  <div class="velo"></div>
+
+  <!-- 1. PORTADA -->
+  <header class="portada">
+    <svg class="murcielago" viewBox="0 0 200 100" aria-hidden="true">
+      <path d="M100 8 L112 28 Q140 14 196 30 Q176 44 170 66 Q150 52 134 66 L116 58 L100 92 L84 58 L66 66 Q50 52 30 66 Q24 44 4 30 Q60 14 88 28 Z"/>
+    </svg>
+    <p class="aviso">Nos gustaria contar contigo en el cumpleaños de</p>
+    <h1 id="nombre" class="neon-amarillo">Maria Angeles</h1>
+    <p id="cuenta" class="cuenta" aria-live="polite"></p>
+    <a href="#detalles" class="boton">Ver detalles</a>
+  </header>
+
+  <main>
+    <!-- 2. DETALLES -->
+    <section id="detalles" class="seccion">
+      <h2 class="neon-cian">La misión</h2>
+      <div class="detalles">
+        <div><h3>Cuándo</h3><p id="txt-fecha"></p></div>
+        <div><h3>Dónde</h3><p><a id="txt-lugar" class="enlace-lugar" href="#" target="_blank" rel="noopener"></a></p></div>
+        <!-- <div><h3>Código de vestimenta</h3><p>Negro, gris o lo que tengas de héroe. Capas bienvenidas.</p></div> -->
+      </div>
+    </section>
+
+    <!-- 3. CARRETE DE FOTOS EN EL TIEMPO -->
+    <section id="carrete-seccion" class="seccion">
+      <h2 class="neon-amarillo">Una vida en el archivo</h2>
+      <p class="sub">Desliza para recorrer los años.</p>
+
+      <div class="carrete-caja">
+        <button class="flecha" id="atras" aria-label="Foto anterior">‹</button>
+        <div class="carrete" id="carrete" tabindex="0">
+          <!-- Cada <figure> es una foto. Copia y pega uno para agregar más. -->
+          <figure><img src="fo1.png" alt="Mi infancia" loading="lazy"><figcaption>Yo bebé</figcaption></figure>
+          <figure><img src="fo2.png" alt="Mi infancia" loading="lazy"><figcaption>Empezando a crecer</figcaption></figure>
+          <figure><img src="fo3.png" alt="Mi niñez" loading="lazy"><figcaption>Una gran niñez</figcaption></figure>
+          <figure><img src="fo4.png" alt="Yo ahora" loading="lazy"><figcaption>De repente crecí más</figcaption></figure>
+          <figure><img src="fo5.jpg" alt="Foto reciente" loading="lazy"><figcaption>Hoy · Otro año más</figcaption></figure>
+        </div>
+        <button class="flecha" id="adelante" aria-label="Foto siguiente">›</button>
+      </div>
+    </section>
+
+    <!-- 4. CONFIRMAR ASISTENCIA -->
+
+<!--   <section class="seccion confirmar">
+      <h2 class="neon-amarillo">¿Cuento contigo?</h2>
+      <a id="btn-confirmar" class="boton" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+    </section> -->
+  </main>>
+
+  <footer class="pie">Esta invitación se autodestruirá después de la fiesta.</footer>
+
+  <!-- Aquí se conecta el JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

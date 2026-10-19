@@ -1,0 +1,160 @@
+/* ============ 1. COLORES Y TIPOGRAFÍAS (cámbialos aquí) ============ */
+:root {
+  --asfalto: #07080c;      /* fondo principal */
+  --concreto: #12151d;     /* paneles */
+  --humo: #aab1c2;         /* texto normal */
+  --amarillo: #ffe600;     /* neón principal (la señal) */
+  --cian: #19e3ff;         /* neón secundario */
+
+  --fuente-titulo: "Anton", Impact, sans-serif;
+  --fuente-texto: "Barlow", system-ui, sans-serif;
+}
+
+/* ============ 2. BASE ============ */
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--asfalto);
+  color: var(--humo);
+  font-family: var(--fuente-texto);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  overflow-x: hidden;               /* nada se sale de la pantalla en el celular */
+  -webkit-text-size-adjust: 100%;
+}
+img, video, iframe, svg { max-width: 100%; }
+
+/* ============ 3. VIDEO DE FONDO ============ */
+.video-fondo {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;       /* el video llena la pantalla sin deformarse */
+  z-index: -2;
+}
+.velo {                     /* capa oscura para que el texto se lea */
+  position: fixed; inset: 0; z-index: -1;
+  background: linear-gradient(rgba(7,8,12,.55), rgba(7,8,12,.88));
+}
+
+/* ============ 4. TEXTOS NEÓN ============ */
+h1, h2, h3 { font-family: var(--fuente-titulo); font-weight: 400; letter-spacing: .04em; }
+.neon-amarillo {
+  color: #fffbd0;
+  text-shadow: 0 0 6px var(--amarillo), 0 0 20px var(--amarillo), 0 0 48px rgba(255,230,0,.6);
+}
+.neon-cian {
+  color: #d9fbff;
+  text-shadow: 0 0 6px var(--cian), 0 0 20px var(--cian), 0 0 48px rgba(25,227,255,.6);
+}
+
+/* ============ 5. PORTADA ============ */
+.portada {
+  min-height: 100vh;
+  min-height: 100svh;               /* en celular descuenta la barra del navegador */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem 1.25rem;
+}
+.murcielago {
+  width: min(280px, 60vw);
+  height: auto;
+  fill: var(--amarillo);
+  filter: drop-shadow(0 0 14px var(--amarillo)) drop-shadow(0 0 40px rgba(255,230,0,.7));
+}
+.aviso { margin-top: 1.5rem; max-width: 30ch; }
+#nombre { font-size: clamp(3.5rem, 15vw, 9rem); line-height: 1.05; margin: .5rem 0; }
+.cuenta { font-family: var(--fuente-titulo); font-size: clamp(1.1rem, 4.5vw, 1.4rem); color: var(--cian); letter-spacing: .08em; margin-bottom: 2rem; }
+
+/* El título parpadea como letrero de neón una sola vez al cargar */
+@media (prefers-reduced-motion: no-preference) {
+  #nombre { animation: parpadeo 1.6s steps(1) 1; }
+}
+@keyframes parpadeo {
+  0%, 18%, 22%, 56%, 60% { opacity: .15; text-shadow: none; }
+  20%, 58%, 100% { opacity: 1; }
+}
+
+/* ============ 6. BOTÓN ============ */
+.boton {
+  display: inline-block;
+  padding: .8rem 2rem;
+  min-height: 48px;                 /* tamaño cómodo para tocar con el dedo */
+  border: 2px solid var(--amarillo);
+  color: var(--amarillo);
+  font-family: var(--fuente-titulo);
+  letter-spacing: .08em;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(255,230,0,.5), inset 0 0 12px rgba(255,230,0,.25);
+  transition: background .2s, color .2s;
+}
+.boton:hover, .boton:focus-visible { background: var(--amarillo); color: var(--asfalto); outline: none; }
+
+/* ============ 7. SECCIONES ============ */
+.seccion { max-width: 1000px; margin: 0 auto; padding: 5rem 1.25rem; }
+.seccion h2 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 1.5rem; }
+.sub { margin-bottom: 1.5rem; }
+
+.detalles { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.detalles > div { background: rgba(18,21,29,.85); border-left: 3px solid var(--cian); padding: 1.25rem; }
+.detalles h3 { color: #fff; font-size: 1.3rem; margin-bottom: .4rem; }
+
+/* ============ 8. CARRETE DE FOTOS ============ */
+.carrete-caja { position: relative; }
+.carrete {
+  display: flex; gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;   /* cada foto "se pega" al deslizar */
+  padding: 2rem 0;
+  /* franjas con perforaciones arriba y abajo, como un rollo de película */
+  background:
+    repeating-linear-gradient(90deg, var(--asfalto) 0 14px, transparent 14px 28px) top / 100% 12px no-repeat,
+    repeating-linear-gradient(90deg, var(--asfalto) 0 14px, transparent 14px 28px) bottom / 100% 12px no-repeat,
+    #000;
+  scrollbar-width: thin;
+  scrollbar-color: var(--amarillo) #000;
+}
+.carrete figure { flex: 0 0 min(300px, 78vw); scroll-snap-align: center; margin-left: 1rem; }
+.carrete img {
+  display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+  background: var(--concreto);
+  filter: grayscale(1) contrast(1.1);        /* blanco y negro, estilo Gotham */
+  transition: filter .3s;
+}
+.carrete figure:hover img { filter: none; }  /* al pasar el mouse recupera el color */
+.carrete figcaption { color: var(--amarillo); font-family: var(--fuente-titulo); letter-spacing: .06em; padding-top: .5rem; }
+
+.flecha {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 2.8rem; height: 2.8rem;
+  background: var(--asfalto); color: var(--amarillo);
+  border: 2px solid var(--amarillo); font-size: 1.8rem; line-height: 1; cursor: pointer;
+}
+#atras { left: .5rem; }
+#adelante { right: .5rem; }
+
+/* ============ 9. ENLACE DEL LUGAR ============ */
+.enlace-lugar {
+  color: var(--cian);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.enlace-lugar::after { content: " ↗"; }
+.enlace-lugar:hover, .enlace-lugar:focus-visible { color: #fff; outline: none; }
+
+/* ============ 10. FINAL ============ 
+.confirmar { text-align: center; }
+.pie { text-align: center; padding: 2rem 1rem 3rem; font-size: .95rem; }*/
+
+/* ============ 11. MÓVIL ============ */
+/* En pantallas táctiles se desliza con el dedo, así que se ocultan las flechas */
+@media (hover: none) {
+  .flecha { display: none; }
+}
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .seccion { padding: 3.5rem 1rem; }
+  .portada { padding: 1.5rem 1rem; }
+  .aviso { max-width: 24ch; }
+  .carrete figure { flex-basis: 72vw; }
+  .carrete { padding-left: 4vw; padding-right: 4vw; }
+  .boton { width: 100%; max-width: 320px; text-align: center; }
+}
