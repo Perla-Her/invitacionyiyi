@@ -1,6 +1,6 @@
 // ============ 1. TUS DATOS (edita solo esta parte) ============
 const DATOS = {
-  nombre: "Maria Angeles",                          // nombre del festejado
+  nombre: "Angeles",                          // nombre del festejado
   fecha: "2026-12-16T16:00:00",             // año-mes-díaTHH:MM:SS (hora de 24 h)
   fechaTexto: "Sábado 26 de diciembre, 4:00 p. m.",
   lugar: "Salón Social San Pedro",          // nombre del lugar
