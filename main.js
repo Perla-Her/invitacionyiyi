@@ -6,6 +6,10 @@ const DATOS = {
   lugar: "Salón Social San Pedro",          // nombre del lugar
   direccion: "C. 88 Pte. 578, INFONAVIT San Pedro, 72220 Heroica Puebla de Zaragoza, Pue.",
   mapa: "https://maps.app.goo.gl/orARt3GR2anCGUhZA",              // enlace copiado de Google Maps (Compartir > Copiar vínculo)
+  horamisa: "2026-12-16T11:00:00",
+  padrinos: "Efren Juarez y Rocio Sanchez",
+  iglesia: "Parroquia de Nuestra Señora de la Soledad de Oaxaca, Puebla",
+  mapa_iglesia: "https://maps.app.goo.gl/xMuMpUVVy1VsBZWp6",
   //whatsapp: "523300000000",                 // 52 + lada + número, sin espacios ni signos
 };
 
@@ -16,6 +20,10 @@ document.getElementById("txt-fecha").textContent = DATOS.fechaTexto;
 const enlaceLugar = document.getElementById("txt-lugar");
 enlaceLugar.textContent = DATOS.lugar + ". " + DATOS.direccion;
 enlaceLugar.href = DATOS.mapa;
+const enlacemisa = document.getElementById("txt-iglesia");
+enlacemisa.textContent = DATOS.iglesia;
+enlacemisa.href = DATOS.mapa_iglesia;
+
 
 // ============ 3. BOTÓN DE WHATSAPP ============
 //const mensaje = "¡Hola! Confirmo mi asistencia al cumpleaños de " + DATOS.nombre + ".";

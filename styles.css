@@ -17,7 +17,7 @@ body {
   background: var(--asfalto);
   color: var(--humo);
   font-family: var(--fuente-texto);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   overflow-x: hidden;               /* nada se sale de la pantalla en el celular */
   -webkit-text-size-adjust: 100%;
@@ -139,6 +139,7 @@ h1, h2, h3 { font-family: var(--fuente-titulo); font-weight: 400; letter-spacing
 }
 .enlace-lugar::after { content: " ↗"; }
 .enlace-lugar:hover, .enlace-lugar:focus-visible { color: #fff; outline: none; }
+
 
 /* ============ 10. FINAL ============ 
 .confirmar { text-align: center; }
