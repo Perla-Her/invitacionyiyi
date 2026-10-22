@@ -2,7 +2,7 @@
 const DATOS = {
   nombre: "Angeles",                          // nombre del festejado
   fecha: "2026-12-16T16:00:00",             // año-mes-díaTHH:MM:SS (hora de 24 h)
-  fechaTexto: "Sábado 26 de diciembre, 4:00 p. m.",
+  fechaTexto: "Sábado 26 de diciembre de 2026", // texto que se mostrará en la invitación
   lugar: "Salón Social San Pedro",          // nombre del lugar
   direccion: "C. 88 Pte. 578, INFONAVIT San Pedro, 72220 Heroica Puebla de Zaragoza, Pue.",
   mapa: "https://maps.app.goo.gl/orARt3GR2anCGUhZA",              // enlace copiado de Google Maps (Compartir > Copiar vínculo)
